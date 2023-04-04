@@ -17,7 +17,13 @@ public class StudentController {
     }
 
     @GetMapping
-    public Student getStudent(){
+    public List<Student> getStudent(){
         return studentService.getStudent();
+    }
+
+    @PostMapping
+    public void registerNewStudent(@RequestBody Student student) {
+
+        studentService.addNewStudent(student);
     }
 }

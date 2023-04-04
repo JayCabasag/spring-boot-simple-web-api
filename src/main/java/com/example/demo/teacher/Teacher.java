@@ -1,6 +1,20 @@
 package com.example.demo.teacher;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "teachers")
 public class Teacher {
+    @Id
+    @SequenceGenerator(
+            name = "teacher_sequence",
+            sequenceName = "teacher_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "teacher_sequence"
+    )
     private Long id;
     private String firstName;
     private String lastName;
